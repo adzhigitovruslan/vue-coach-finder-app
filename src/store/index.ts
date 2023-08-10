@@ -1,9 +1,16 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex';
+import coachesModule from './modules/coaches/index.ts';
 
-export default createStore({
-  state: {},
+const store = createStore({
+  state() {
+    return {};
+  },
   getters: {},
   mutations: {},
   actions: {},
-  modules: {},
+  modules: {
+    coaches: coachesModule,
+  },
 });
+
+export default store;
