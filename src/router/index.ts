@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/coaches/:id',
     props: true,
     component: CoachDetail,
-    children: [{ path: 'contact', component: ContactCoach }],
+    children: [{ path: '/contact', component: ContactCoach }],
   },
   {
     path: '/register',

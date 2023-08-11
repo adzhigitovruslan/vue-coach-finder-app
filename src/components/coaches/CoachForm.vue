@@ -48,7 +48,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CoachForm } from '@/types/CoachesState';
+import { Coach } from '@/types/CoachesState';
 import { MyData } from '@/types/MyData';
 
 export default defineComponent({
@@ -109,13 +109,13 @@ export default defineComponent({
       this.validateForm();
       if (!this.formIsValid) return;
 
-      const formData: CoachForm = {
+      const formData: Coach = {
         id: '',
-        firstName: this.firstName,
-        lastName: this.lastName,
-        description: this.description,
-        hourlyRate: this.rate,
-        areas: this.areas,
+        firstName: this.firstName.val,
+        lastName: this.lastName.val,
+        description: this.description.val,
+        hourlyRate: this.rate.val,
+        areas: this.areas.val,
       };
       this.$emit('save-data', formData);
     },
