@@ -8,5 +8,11 @@ export interface Coach {
 }
 
 export interface CoachesState {
-  coaches?: Coach[];
+  coaches: Coach[];
+}
+
+export interface CoachesGetters {
+  coaches: Coach[];
+  hasCoaches: boolean;
+  isCoach: boolean;
 }

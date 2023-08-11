@@ -30,7 +30,6 @@ export default defineComponent({
   props: {
     id: {
       type: String,
-      required: true,
     },
   },
   data() {
@@ -39,19 +38,19 @@ export default defineComponent({
     };
   },
   computed: {
-    fullName() {
+    fullName(): string {
       return this.selectedCoach.firstName + ' ' + this.selectedCoach.lastName;
     },
-    areas() {
+    areas(): string[] {
       return this.selectedCoach.areas;
     },
-    rate() {
+    rate(): number {
       return this.selectedCoach.hourlyRate;
     },
-    description() {
+    description(): string {
       return this.selectedCoach.description;
     },
-    contactLink() {
+    contactLink(): string {
       return this.$route.path + '/' + this.id + '/contact';
     },
   },

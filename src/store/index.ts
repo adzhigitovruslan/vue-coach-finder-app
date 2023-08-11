@@ -3,9 +3,15 @@ import coachesModule from './modules/coaches/index.ts';
 
 const store = createStore({
   state() {
-    return {};
+    return {
+      userId: 'c3',
+    };
   },
-  getters: {},
+  getters: {
+    userId(state) {
+      return state.userId;
+    },
+  },
   mutations: {},
   actions: {},
   modules: {

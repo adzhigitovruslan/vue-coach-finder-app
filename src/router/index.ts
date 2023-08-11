@@ -13,7 +13,6 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/coaches',
-    name: 'coaches',
     component: CoachesList,
   },
   {
@@ -25,17 +24,14 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/register',
-    name: 'register',
     component: CoachRegistration,
   },
   {
     path: '/requests',
-    name: 'requests',
     component: RequestsRecieved,
   },
   {
     path: '/:notFound(.*)',
-    name: 'not-found',
     component: NotFound,
   },
 ];
