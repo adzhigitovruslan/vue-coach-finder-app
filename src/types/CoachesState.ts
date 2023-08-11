@@ -33,6 +33,7 @@ export interface CoachForm {
 
 export interface CoachesState {
   coaches: Coach[];
+  lastFetch: null | number;
 }
 
 export interface CoachesGetters {

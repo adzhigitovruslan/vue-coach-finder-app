@@ -7,4 +7,7 @@ export default {
   setCoaches(state: CoachesState, payload: Coach[]) {
     state.coaches = payload;
   },
+  setFetchTimestamp(state: CoachesState) {
+    state.lastFetch = new Date().getTime();
+  },
 };

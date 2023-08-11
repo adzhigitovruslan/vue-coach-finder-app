@@ -4,7 +4,7 @@ import requestsModule from '@/store/modules/requests/index.ts';
 const store = createStore({
   state() {
     return {
-      userId: 'c3',
+      userId: 'c1',
     };
   },
   getters: {

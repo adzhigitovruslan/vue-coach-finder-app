@@ -2,7 +2,7 @@ export interface ContactData {
   id?: string;
   email: string;
   message: string;
-  coachId: string;
+  coachId?: string;
 }
 
 export interface RequestsState {
