@@ -110,7 +110,6 @@ export default defineComponent({
       if (!this.formIsValid) return;
 
       const formData: Coach = {
-        id: '',
         firstName: this.firstName.val,
         lastName: this.lastName.val,
         description: this.description.val,

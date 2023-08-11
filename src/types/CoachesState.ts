@@ -1,5 +1,5 @@
 export interface Coach {
-  id: string;
+  id?: string;
   firstName: string;
   lastName: string;
   areas: string[];
