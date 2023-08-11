@@ -3,9 +3,11 @@ import getters from './getters.ts';
 import actions from './actions.ts';
 
 export default {
-  namespace: true,
+  namespaced: true,
   state() {
-    return {};
+    return {
+      requests: [],
+    };
   },
   getters,
   mutations,

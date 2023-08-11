@@ -44,7 +44,7 @@ export default defineComponent({
     areas(): string[] {
       return this.selectedCoach.areas;
     },
-    rate(): number {
+    rate(): number | null {
       return this.selectedCoach.hourlyRate;
     },
     description(): string {

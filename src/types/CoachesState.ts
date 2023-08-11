@@ -4,7 +4,31 @@ export interface Coach {
   lastName: string;
   areas: string[];
   description: string;
-  hourlyRate: number;
+  hourlyRate: number | null;
+}
+
+export interface CoachForm {
+  id: string;
+  firstName: {
+    val: string;
+    isValid: boolean;
+  };
+  lastName: {
+    val: string;
+    isValid: boolean;
+  };
+  areas: {
+    val: string[];
+    isValid: boolean;
+  };
+  description: {
+    val: string;
+    isValid: boolean;
+  };
+  hourlyRate: {
+    val: number | null;
+    isValid: boolean;
+  };
 }
 
 export interface CoachesState {

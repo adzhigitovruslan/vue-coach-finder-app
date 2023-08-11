@@ -18,35 +18,34 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  props: ['id', 'firstName', 'lastName', 'rate', 'areas'],
-  // props: {
-  //   id: {
-  //     type: String,
-  //     required: true,
-  //   },
-  //   firstName: {
-  //     type: String,
-  //     required: true,
-  //   },
-  //   lastName: {
-  //     type: String,
-  //     required: true,
-  //   },
-  //   rate: {
-  //     type: Number,
-  //     required: true,
-  //   },
-  //   areas: {
-  //     type: Array<string>,
-  //     required: true,
-  //   },
-  // },
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    rate: {
+      type: Number,
+      required: true,
+    },
+    areas: {
+      type: Array<string>,
+      required: true,
+    },
+  },
   computed: {
     fullName() {
       return this.firstName + ' ' + this.lastName;
     },
     coachContactLink() {
-      return this.$route.path + this.id + '/contact';
+      return this.$route.path + '/' + this.id + '/contact';
     },
     coachDetailsLink() {
       return this.$route.path + '/' + this.id;
