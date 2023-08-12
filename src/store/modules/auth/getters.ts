@@ -12,6 +12,9 @@ const getters: GetterTree<AuthState, RootState> = {
   isAuthenticated(state) {
     return !!state.token;
   },
+  didAutoLogout(state) {
+    return state.didAutoLogout;
+  },
 };
 
 export default getters;
