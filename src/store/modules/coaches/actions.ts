@@ -1,14 +1,16 @@
 import { Coach } from '@/types/CoachesState';
+import { ActionTree } from 'vuex';
+import { RootState } from '@/types/RootState';
+import { RequestsState, forceRefresh } from '@/types/RequestsState';
 
-export default {
-  async registerCoach(
-    context: { rootGetters: { userId: string }; commit: (arg0: string, arg1: Coach) => void },
-    data: Coach,
-  ) {
+const actions: ActionTree<RequestsState, RootState> = {
+  async registerCoach(context, data: Coach) {
     const userId = context.rootGetters.userId;
+    const token = context.rootGetters.token;
 
     const response = await fetch(
-      `https://vue-http-project-7a50b-default-rtdb.europe-west1.firebasedatabase.app/coaches/${userId}.json`,
+      `https://vue-http-project-7a50b-default-rtdb.europe-west1.firebasedatabase.app/coaches/${userId}.json?auth=` +
+        token,
       {
         method: 'PUT',
         body: JSON.stringify(data),
@@ -25,10 +27,8 @@ export default {
       id: userId,
     });
   },
-  async loadCoaches(
-    context: { getters: { shouldUpdate: boolean }; commit: (arg0: string, arg1?: Coach[]) => void },
-    payload: { forceRefresh: boolean },
-  ) {
+
+  async loadCoaches(context, payload: forceRefresh) {
     if (!payload.forceRefresh && !context.getters.shouldUpdate) {
       return;
     }
@@ -59,3 +59,5 @@ export default {
     context.commit('setFetchTimestamp');
   },
 };
+
+export default actions;

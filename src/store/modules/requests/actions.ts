@@ -1,7 +1,9 @@
-import { ContactData } from '@/types/RequestsState';
+import { ContactData, RequestsState } from '@/types/RequestsState';
+import { ActionTree } from 'vuex';
+import { RootState } from '@/types/RootState';
 
-export default {
-  async contactCoach(context: { commit: (arg0: string, arg1: ContactData) => void }, payload: ContactData) {
+const actions: ActionTree<RequestsState, RootState> = {
+  async contactCoach(context, payload) {
     const newRequest: ContactData = {
       email: payload.email,
       message: payload.message,
@@ -23,13 +25,13 @@ export default {
     newRequest.coachId = payload.coachId;
     context.commit('addRequest', newRequest);
   },
-  async fetchRequests(context: {
-    rootGetters: { userId: string };
-    commit: (arg0: string, arg1: ContactData[]) => void;
-  }) {
+  async fetchRequests(context) {
     const coachId = context.rootGetters.userId;
+    const token = context.rootGetters.token;
+
     const response = await fetch(
-      `https://vue-http-project-7a50b-default-rtdb.europe-west1.firebasedatabase.app/requests/${coachId}.json`,
+      `https://vue-http-project-7a50b-default-rtdb.europe-west1.firebasedatabase.app/requests/${coachId}.json?auth=` +
+        token,
     );
     const resData = await response.json();
     if (!response.ok) {
@@ -50,3 +52,5 @@ export default {
     context.commit('setRequests', requests);
   },
 };
+
+export default actions;

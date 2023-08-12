@@ -8,3 +8,12 @@ export interface ContactData {
 export interface RequestsState {
   requests: ContactData[];
 }
+
+export interface RequestGetters {
+  requests: ContactData[];
+  hasRequests: boolean;
+}
+
+export interface forceRefresh {
+  forceRefresh: boolean;
+}

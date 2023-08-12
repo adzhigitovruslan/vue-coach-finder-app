@@ -1,13 +1,16 @@
 import { CoachesState, Coach } from '@/types/CoachesState';
+import { MutationTree } from 'vuex';
 
-export default {
-  registerCoach(state: CoachesState, payload: Coach) {
+const mutations: MutationTree<CoachesState> = {
+  registerCoach(state, payload: Coach) {
     state.coaches.push(payload);
   },
-  setCoaches(state: CoachesState, payload: Coach[]) {
+  setCoaches(state, payload: Coach[]) {
     state.coaches = payload;
   },
-  setFetchTimestamp(state: CoachesState) {
+  setFetchTimestamp(state) {
     state.lastFetch = new Date().getTime();
   },
 };
+
+export default mutations;
