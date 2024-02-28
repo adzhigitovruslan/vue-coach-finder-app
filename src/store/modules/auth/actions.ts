@@ -2,6 +2,7 @@ import { AuthState, SignInPayload } from '@/types/AuthState';
 import { ActionTree } from 'vuex';
 import { RootState } from '@/types/RootState';
 
+// set to .env
 enum API {
   signupUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=',
   loginUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=',
@@ -43,8 +44,8 @@ const actions: ActionTree<AuthState, RootState> = {
       throw error;
     }
 
-    // const expiresIn = +data.expiresIn * 1000;
-    const expiresIn = 5000;
+    const expiresIn = +data.expiresIn * 1000;
+    // const expiresIn = 5000;
     const expirationDate = new Date().getTime() + expiresIn;
 
     localStorage.setItem('token', data.idToken);
